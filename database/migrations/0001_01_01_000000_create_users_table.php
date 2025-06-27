@@ -19,6 +19,10 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->enum('role', ['admin', 'moderator', 'user'])->default('user');
+            $table->boolean('suspended')->default(false);
+            $table->string('suspended_reason')->nullable();
+            $table->string('suspended_at')->nullable();
+            $table->string('suspended_by')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
